@@ -1,4 +1,5 @@
 "use strict";
+
 let myCondition = true;
 // output: true
 

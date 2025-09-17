@@ -1,6 +1,7 @@
 "use strict";
 
 //!Difference between let and const
+
 // 'let' variable can be changed
 let age = 27;
 console.log("Alter: ", age); // Output: 27
@@ -11,6 +12,8 @@ console.log("Neues Alter: ", age); // Output: 32
 // 'const' variable cannot be changed
 const birthYear = 1996;
 console.log("Geburtsjahr: ", birthYear); // Output: 1996
+
+//====================================================================================================
 
 //! Datatypes
 

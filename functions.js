@@ -1,9 +1,9 @@
 "use strict";
 
 //! Functions in JavaScript
-// 1. A function is a block of code that you can use again and again.
-// 2. You can give inputs to the function, called parameters.
-// 3. A function can give back a result using "return".
+// A function is a block of code that you can use again and again.
+// You can give inputs to the function, called parameters.
+// A function can give back a result using "return".
 
 let tax = 1.19; // tax multiplier
 
