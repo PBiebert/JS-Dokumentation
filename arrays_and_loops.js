@@ -23,4 +23,3 @@ fruits.pop(); //Output:
 function initArrays() {
   console.log(fruits);
 }
-for
