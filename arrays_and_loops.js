@@ -23,6 +23,39 @@ fruits.pop();
 
 console.log(fruits);
 
+// "Array.shift()" - removes the first element of the array and returns it
+function removeFirstElement(array) {
+  array.shift();
+  return array;
+}
+
+console.log(removeFirstElement([10, 20, 30, 40])); // output: [20, 30, 40]
+console.log(removeFirstElement(["a", "b", "c", "d"])); // output: ['b', 'c', 'd']
+
+// "Array.unshift()" - adds one or more elements at the start and returns the new length
+function addElementToStart(array, element) {
+  array.unshift(element);
+  return array;
+}
+
+console.log(addElementToStart([2, 3, 4], 1)); // output: [1, 2, 3, 4]
+console.log(addElementToStart(["b", "c", "d"], "a")); // output: ['a', 'b', 'c', 'd']
+
+// "Array.splice()" - changes the array by removing, replacing, or adding elements
+function modifyArray(array, start, deleteCount, ...items) {
+  array.splice(start, deleteCount, ...items);
+  return array;
+}
+
+console.log(modifyArray(["Banana", "Orange", "Apple", "Mango"], 2, 1));
+// output: ['Banana', 'Orange', 'Mango']
+
+console.log(modifyArray(["Banana", "Orange", "Mango"], 1, 0, "Kiwi"));
+// output: ['Banana', 'Kiwi', 'Orange', 'Mango']
+
+console.log(modifyArray(["Banana", "Kiwi", "Orange", "Mango"], 2, 1, "Lemon"));
+// output: ['Banana', 'Kiwi', 'Lemon', 'Mango']
+
 //! Arrays - Search & Check
 
 // "Array.includes()" - returns true if the array contains the given element, otherwise false
@@ -41,23 +74,7 @@ function findElementIndex(array, element) {
 console.log(findElementIndex([10, 20, 30, 40], 30)); // output: 2
 console.log(findElementIndex([10, 20, 30, 40], 50)); // output: -1
 
-// "Array.shift()" - removes the first element of the array and returns it
-function removeFirstElement(array) {
-  array.shift();
-  return array;
-}
-
-console.log(removeFirstElement([10, 20, 30, 40])); // output: [20, 30, 40]
-console.log(removeFirstElement(["a", "b", "c", "d"])); // output: ['b', 'c', 'd']
-
-// "Array.unshift()" - adds one or more elements at the start and returns the new length
-function addElementToStart(array, element) {
-  array.unshift(element);
-  return array;
-}
-
-console.log(addElementToStart([2, 3, 4], 1)); // output: [1, 2, 3, 4]
-console.log(addElementToStart(["b", "c", "d"], "a")); // output: ['a', 'b', 'c', 'd']
+//! Arrays - Copy & Transform
 
 // "Array.slice()" - creates a shallow copy of the array from start index up to (but not including) end index
 function getSubArray(array, start, end) {
