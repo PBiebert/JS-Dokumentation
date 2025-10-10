@@ -117,6 +117,14 @@ function forEachLoop() {
 }
 forEachLoop();
 
+//! Arrays - Spread Operator
+
+// The spread operator "..." expands an array into individual elements
+// Can be used for copying, merging, or inserting elements into another array
+let colors = ["Red", "Green", "Blue"];
+let colorsCopy = [...colors]; // creates a shallow copy of the array
+console.log("Colors Copy:", colorsCopy); // Output: ["Red", "Green", "Blue"]
+
 //! Loops - Examples with for
 
 // Calculate the sum of all elements in an array
