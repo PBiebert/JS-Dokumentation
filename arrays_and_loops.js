@@ -74,6 +74,38 @@ function findElementIndex(array, element) {
 console.log(findElementIndex([10, 20, 30, 40], 30)); // output: 2
 console.log(findElementIndex([10, 20, 30, 40], 50)); // output: -1
 
+// "Array.filter()" - filters an array of objects based on a condition
+// Acts like a search function that returns all elements where the condition is true
+// The callback function must return either true or false for each element
+let myObjectArray = [
+  {
+    name: "Max",
+    is_a_good_guy: true,
+  },
+  {
+    name: "Peter",
+    is_a_good_guy: false,
+  },
+  {
+    name: "Arnold",
+    is_a_good_guy: true,
+  },
+];
+
+console.log(
+  myObjectArray.filter((element) => {
+    return element["is_a_good_guy"] === true;
+  })
+);
+
+/*Output:
+arrays_and_loops.js:96 
+(2) [{…}, {…}]
+0:{name: 'Max', is_a_good_guy: true}
+1:{name: 'Arnold', is_a_good_guy: true}
+length:2
+*/
+
 //! Arrays - Copy & Transform
 
 // "Array.slice()" - creates a shallow copy of the array from start index up to (but not including) end index
@@ -210,7 +242,7 @@ function sumArrayBreak(array) {
     sum += array[i];
 
     if (array[i] == "error") {
-      console.error(`Error`);
+      console.error(`error`);
       break;
     }
   }
