@@ -78,18 +78,9 @@ console.log(findElementIndex([10, 20, 30, 40], 50)); // output: -1
 // Acts like a search function that returns all elements where the condition is true
 // The callback function must return either true or false for each element
 let myObjectArray = [
-  {
-    name: "Max",
-    is_a_good_guy: true,
-  },
-  {
-    name: "Peter",
-    is_a_good_guy: false,
-  },
-  {
-    name: "Arnold",
-    is_a_good_guy: true,
-  },
+  { name: "Max", is_a_good_guy: true },
+  { name: "Peter", is_a_good_guy: false },
+  { name: "Arnold", is_a_good_guy: true },
 ];
 
 console.log(
@@ -104,6 +95,28 @@ arrays_and_loops.js:96
 0:{name: 'Max', is_a_good_guy: true}
 1:{name: 'Arnold', is_a_good_guy: true}
 length:2
+*/
+
+// "Array.findIndex()" - returns the index of the first element that matches a given condition
+// Works like a search function, but instead of returning the element itself, it returns its index
+// If no element satisfies the condition, it returns -1
+
+let myObjectArr = [
+  { name: "Max", is_a_good_guy: true },
+  { name: "Peter", is_a_good_guy: false },
+  { name: "Arnold", is_a_good_guy: true },
+  { name: "Justus", is_a_good_guy: true },
+  { name: "Bombur", is_a_good_guy: false },
+];
+
+console.log(
+  myObjectArr.findIndex((element) => {
+    return element.name === "Justus";
+  })
+);
+
+/* Output:
+3
 */
 
 //! Arrays - Copy & Transform
