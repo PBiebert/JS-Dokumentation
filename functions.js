@@ -18,3 +18,34 @@ function calculatePrice(discount, price, tax) {
   // return sends the result back to the place where we called the function
   return (price - discount) * tax;
 }
+
+//! Arrow-function
+// Arrow functions are a shorter way to write functions
+// They use the "=>" syntax instead of the "function" keyword
+// Arrow functions are especially useful for short, simple functions
+// Syntax: (parameters) => { code block } or (parameters) => expression
+
+// Traditional function
+function addTraditional(a, b) {
+  return a + b;
+}
+
+// Arrow function (long form)
+let addArrow = (a, b) => {
+  return a + b;
+};
+
+// Arrow function (short form) - automatically returns the expression
+let addShort = (a, b) => a + b;
+
+// Arrow function with single parameter (parentheses optional)
+let double = (x) => x * 2;
+
+// Arrow function with no parameters
+let getRandomNumber = () => Math.random();
+
+// Test the arrow functions
+console.log(addArrow(5, 3)); // output: 8
+console.log(addShort(10, 20)); // output: 30
+console.log(double(7)); // output: 14
+console.log(getRandomNumber()); // output: zufällige Zahl zwischen 0 und 1

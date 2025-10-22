@@ -51,6 +51,13 @@ myCondition = 45 !== "45"; // output: true
 
 console.log(myCondition);
 
+//! "boolean ? val1 : val2" ternary-operator
+// Short way to write an if-else condition in one line
+// If condition is true, val1 is returned, otherwise val2
+// Syntax: condition ? valueIfTrue : valueIfFalse
+let lang = "de";
+let myTitle = lang == "de" ? "Webseite" : "Website"; // output: "Webseite"
+
 //! "if else" condition
 // First it checks if condition one is true.
 // If condition one is false, it checks if condition two is true.
@@ -64,4 +71,34 @@ if (myIfCondition) {
   console.log("Second condition is true");
 } else {
   console.log("Neither condition is true -> else block executed");
+}
+
+//! "switch" Switch/Case condition
+// Switch statement checks a value against multiple possible cases
+// Each "case" corresponds to a possible value
+// "break" ends the respective case and prevents fall-through
+// "default" is executed when no case matches
+
+function collorCheck(color) {
+  let colorCode;
+
+  switch (color) {
+    case "red":
+      colorCode = "#ba190eff"; // Red
+      break;
+
+    case "green":
+      colorCode = "#0eba1eff"; // Green
+      break;
+
+    case "blue":
+      colorCode = "#1e0eba"; // Blue
+      break;
+
+    default:
+      colorCode = "#210eba"; // Default color (Purple)
+      break;
+  }
+
+  return colorCode; // Returns the color code
 }
