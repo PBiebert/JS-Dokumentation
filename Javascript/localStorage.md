@@ -1,3 +1,5 @@
+[Back to Table of Contents](../README.md)
+
 # Local Storage in JavaScript
 
 ## What is Local Storage?

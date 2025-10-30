@@ -1,3 +1,5 @@
+[Back to Table of Contents](../README.md)
+
 # Functions in JavaScript
 
 ## What is a Function?

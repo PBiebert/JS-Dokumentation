@@ -1,3 +1,5 @@
+[Back to Table of Contents](../README.md)
+
 # Scopes in JavaScript
 
 ## What is a Scope?

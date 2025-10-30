@@ -1,3 +1,5 @@
+[Back to Table of Contents](../README.md)
+
 # DOM Manipulation in JavaScript
 
 ## What is the DOM?

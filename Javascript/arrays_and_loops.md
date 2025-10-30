@@ -1,3 +1,5 @@
+[Back to Table of Contents](../README.md)
+
 # Arrays and Loops in JavaScript
 
 ## Arrays – Basics
@@ -5,7 +7,7 @@
 Arrays are lists of values. Indexing starts at 0.
 
 ```js
-let myList = [12, "bannana", 1];
+let myList = [12, "banana", 1];
 let fruits = ["Banana", "Orange", "Apple", "Mango"];
 
 console.log(myList[1]); // Access an element
@@ -119,7 +121,7 @@ let index = people.findIndex((person) => person.name === "Ben");
 
 ### .slice()
 
-**.slice()** erstellt eine Kopie eines Array-Ausschnitts (von Start bis End-Index, End-Index exklusive).
+**.slice()** creates a copy of a section of an array (from start to end index, end index exclusive).
 
 ```js
 let arr = [1, 2, 3, 4, 5];
@@ -128,15 +130,15 @@ let subArr = arr.slice(1, 4); // [2, 3, 4]
 
 ### .join()
 
-**.join()** verbindet alle Elemente zu einem String, getrennt durch das angegebene Zeichen.
+**.join()** joins all elements into a string, separated by the given character.
 
 ```js
 let joined = arr.join(" - "); // "1 - 2 - 3 - 4 - 5"
 ```
 
-### Spread-Operator (...)
+### Spread Operator (...)
 
-**...** kopiert oder erweitert Arrays.
+**...** copies or expands arrays.
 
 ```js
 let copy = [...arr];
@@ -144,11 +146,11 @@ let copy = [...arr];
 
 ---
 
-## Schleifen – Grundlagen
+## Loops – Basics
 
-### for-Schleife
+### for loop
 
-**for-Schleife**: Wiederholt Code, solange eine Bedingung erfüllt ist.
+**for loop**: Repeats code as long as a condition is true.
 
 ```js
 for (let i = 0; i < fruits.length; i++) {
@@ -156,9 +158,9 @@ for (let i = 0; i < fruits.length; i++) {
 }
 ```
 
-### while-Schleife
+### while loop
 
-**while-Schleife**: Führt Code aus, solange eine Bedingung true ist.
+**while loop**: Executes code as long as a condition is true.
 
 ```js
 function whileLoop() {
@@ -173,7 +175,7 @@ whileLoop();
 
 ### forEach()
 
-**forEach()**: Führt eine Funktion für jedes Element im Array aus.
+**forEach()**: Executes a function for each element in the array.
 
 ```js
 fruits.forEach((element) => {
@@ -183,9 +185,9 @@ fruits.forEach((element) => {
 
 ---
 
-## Schleifen – Beispiele
+## Loops – Examples
 
-### Summe aller Elemente
+### Sum of all elements
 
 ```js
 function sumArray(array) {
@@ -197,7 +199,7 @@ function sumArray(array) {
 }
 ```
 
-### Zahlenreihe erzeugen
+### Generate a sequence of numbers
 
 ```js
 function printNumbers(num) {
@@ -211,7 +213,7 @@ function printNumbers(num) {
 }
 ```
 
-### Zahlenreihe rückwärts
+### Generate a sequence in reverse
 
 ```js
 function printNumbersReverse(num) {
@@ -225,7 +227,7 @@ function printNumbersReverse(num) {
 }
 ```
 
-### Jedes dritte Element ausgeben
+### Print every third element
 
 ```js
 function printEveryThirdElement(array) {
@@ -243,26 +245,26 @@ function printEveryThirdElement(array) {
 }
 ```
 
-### Primzahl-Prüfung
+### Prime number check
 
 ```js
 function isPrime(num) {
-  if (num < 2) return `${num} ist keine Primzahl`;
+  if (num < 2) return `${num} is not a prime number`;
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
-      return `${num} ist keine Primzahl`;
+      return `${num} is not a prime number`;
     }
   }
-  return `${num} ist eine Primzahl`;
+  return `${num} is a prime number`;
 }
 ```
 
 ---
 
-## Schleifen – Steuerbefehle
+## Loop Control Statements
 
-**break** beendet die aktuelle Schleife sofort.  
-**continue** überspringt die aktuelle Iteration und macht mit der nächsten weiter.
+**break** immediately ends the current loop.  
+**continue** skips the current iteration and continues with the next one.
 
 ```js
 function sumArrayBreak(array) {
@@ -291,9 +293,9 @@ function sumArrayContinue(array) {
 
 ---
 
-## Zusammenfassung
+## Summary
 
-- Arrays speichern Listen von Werten.
-- Mit Methoden wie push, pop, shift, unshift, splice, slice, join, includes usw. kannst du Arrays flexibel bearbeiten.
-- Schleifen helfen, wiederkehrende Aufgaben zu automatisieren.
-- Mit break und continue steuerst du den Ablauf von Schleifen.
+- Arrays store lists of values.
+- With methods like push, pop, shift, unshift, splice, slice, join, includes, etc. you can flexibly manipulate arrays.
+- Loops help automate repetitive tasks.
+- With break and continue you control the flow of loops.

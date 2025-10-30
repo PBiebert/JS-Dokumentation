@@ -1,25 +1,21 @@
-# Inhaltsverzeichnis – Dokumentation
+# Table of Contents – Documentation
 
 ### JavaScript
 
-### JavaScript
-
-**Dokumentationen:**
-
-- [Grundlagen](./Javascript/basics.md)
-- [Zahlen & Strings](./Javascript/string_numbers.md)
-- [Objekte](./Javascript/objects.md)
-- [Arrays & Schleifen](./Javascript/arrays_and_loops.md)
-- [Funktionen](./Javascript/functions.md)
-- [Bedingungen & Vergleiche](./Javascript/conditional_code.md)
-- [DOM-Manipulation](./Javascript/dom_manipulation.md)
+- [Basics](./Javascript/basics.md)
+- [Numbers & Strings](./Javascript/string_numbers.md)
+- [Objects](./Javascript/objects.md)
+- [Arrays & Loops](./Javascript/arrays_and_loops.md)
+- [Functions](./Javascript/functions.md)
+- [Conditionals & Comparisons](./Javascript/conditional_code.md)
+- [DOM Manipulation](./Javascript/dom_manipulation.md)
 - [Local Storage](./Javascript/localStorage.md)
 - [Scopes](./Javascript/scopes.md)
 
 ### TypeScript
 
-_(Hier können später TypeScript-Dokumentationen verlinkt werden)_
+_(TypeScript documentation can be linked here later)_
 
 ### Angular
 
-_(Hier können später Angular-Dokumentationen verlinkt werden)_
+_(Angular documentation can be linked here later)_

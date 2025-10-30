@@ -1,3 +1,5 @@
+[Back to Table of Contents](../README.md)
+
 # Numbers and Strings in JavaScript
 
 ## Numbers – Basic Arithmetic

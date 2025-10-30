@@ -1,0 +1,4 @@
+square brackets = Eckige Klammern
+to call = aufzurufen
+overwrites = Überschreibt
+something = etwas
