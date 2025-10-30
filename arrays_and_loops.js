@@ -1,6 +1,6 @@
 "use strict";
 
-//! Arrays - Basics
+//! Arrays - Basics 
 
 // Create an array using square brackets
 // Array indices start at 0, not 1
@@ -73,6 +73,25 @@ function findElementIndex(array, element) {
 
 console.log(findElementIndex([10, 20, 30, 40], 30)); // output: 2
 console.log(findElementIndex([10, 20, 30, 40], 50)); // output: -1
+
+// "Array.find()" - returns the first element that satisfies the condition, otherwise undefined
+// Useful to find an object in an array of objects
+// Important: find() returns a reference to the found object, not a copy. Changes to the result will affect the original array.
+let people = [
+  { name: "Anna", age: 25 },
+  { name: "Ben", age: 30 },
+  { name: "Clara", age: 28 },
+];
+
+let foundPerson = people.find((person) => person.age > 26);
+console.log(foundPerson); // output: { name: 'Ben', age: 30 }
+
+let notFound = people.find((person) => person.name === "Daniel");
+console.log(notFound); // output: undefined
+
+// Demonstrate that changing foundPerson also changes the original array
+foundPerson.age = 99;
+console.log(people); // Ben's age is now 99 in the original array
 
 // "Array.filter()" - filters an array of objects based on a condition
 // Acts like a search function that returns all elements where the condition is true
