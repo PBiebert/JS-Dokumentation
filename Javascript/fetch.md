@@ -1,16 +1,4 @@
----
-# Was ist ein eigenes Promise und wofür braucht man das?
-
-Ein eigenes Promise erstellst du, wenn du eine asynchrone Operation hast, die nicht schon von Haus aus ein Promise zurückgibt (wie z.B. fetch). Das ist oft bei eigenen zeitverzögerten Abläufen, Events oder älteren Callback-Funktionen der Fall.
-
-**Wofür verwendet man eigene Promises?**
-- Um eigene asynchrone Abläufe zu kapseln und kontrolliert auf Erfolg oder Fehler zu reagieren.
-- Um alte Callback-APIs in moderne Promise-APIs umzuwandeln.
-- Um z.B. Wartezeiten, Animationen, oder komplexe Logik asynchron zu steuern.
-
-**Beispiel:**
 # Asynchrone Programmierung, Promises & fetch
----
 
 ## 1. Was bedeutet asynchron?
 
@@ -135,15 +123,45 @@ async function ladeDaten() {
 
 ---
 
-## 8. Typische Anwendungsbeispiele
+## 8. Mehrere APIs gleichzeitig abfragen (Promise.all)
+
+Wenn du Daten aus mehreren unabhängigen APIs gleichzeitig abrufen möchtest (z.B. bei der Pokémon-API die Basisdaten und bei der Species-API die deutschen Namen), kannst du `Promise.all` verwenden. Damit laufen beide Anfragen parallel und du wartest, bis beide fertig sind:
+
+```js
+async function fetchPokemonData() {
+  // URLs für die beiden APIs
+  const url1 = "https://pokeapi.co/api/v2/pokemon/1"; // Basisdaten
+  const url2 = "https://pokeapi.co/api/v2/pokemon-species/1"; // Spezialdaten
+
+  // Beide Anfragen gleichzeitig starten
+  const [pokemonResponse, speciesResponse] = await Promise.all([fetch(url1), fetch(url2)]);
+
+  // Beide Antworten als JSON parsen
+  const [pokemonData, speciesData] = await Promise.all([pokemonResponse.json(), speciesResponse.json()]);
+
+  // Beispiel: Deutschen Namen aus speciesData holen
+  const germanName = speciesData.names.find((n) => n.language.name === "de").name;
+
+  console.log("Pokemon Daten:", pokemonData);
+  console.log("Deutscher Name:", germanName);
+}
+
+fetchPokemonData();
+```
+
+**Vorteil:** Beide Anfragen laufen parallel und du sparst Zeit, da du nicht aufeinander warten musst.
+
+---
+
+## 9. Typische Anwendungsbeispiele
 
 ### JSON laden
 
 ```js
 async function fetchDataJson() {
-  let reponse = await fetch("db.json");
-  let responseAsJson = await reponse.json();
-  console.log(reponse);
+  let response = await fetch("db.json");
+  let responseAsJson = await response.json();
+  console.log(response);
   console.log(responseAsJson);
 }
 ```
@@ -152,8 +170,8 @@ async function fetchDataJson() {
 
 ```js
 async function fetchDataText() {
-  let reponse = await fetch("h1.txt");
-  let responseAsText = await reponse.text();
+  let response = await fetch("h1.txt");
+  let responseAsText = await response.text();
   document.getElementById("content").innerHTML = responseAsText;
 }
 ```
@@ -206,27 +224,60 @@ async function usePromise() {
 
 ---
 
-## 9. Zusammenfassung
+## 10. Zusammenfassung
 
 - Asynchrone Operationen blockieren den Code nicht.
 - Promises sind die Grundlage für moderne asynchrone Programmierung.
 - fetch gibt ein Promise zurück.
 - Mit async/await kannst du Promises einfach nutzen.
 - Fehlerbehandlung ist wichtig!
-  console.error(error);
-  }
-  console.log("ende");
-  }
-
-```
 
 ---
 
-## Zusammenfassung
+## 11. Praxisbeispiel: Daten laden, speichern und weiterverarbeiten
 
-- Asynchrone Operationen blockieren den Code nicht.
-- Promises sind die Grundlage für moderne asynchrone Programmierung.
-- fetch gibt ein Promise zurück.
-- Mit async/await kannst du Promises einfach nutzen.
-- Fehlerbehandlung ist wichtig!
+Im folgenden Beispiel werden Fruchtdaten von einer API geladen, in einem Array gespeichert und anschließend im HTML angezeigt – inklusive Fehlerbehandlung:
+
+```js
+let fruits = [];
+
+async function init() {
+  await fetchDataJson();
+  renderFruits();
+}
+
+async function fetchDataJson() {
+  try {
+    const response = await fetch(`https://www.fruityvice.com/api/fruit/all`);
+    if (!response.ok) throw new Error("Fehler beim Laden!");
+    const responseAsJson = await response.json();
+    fruits = responseAsJson; // Daten im Array speichern
+  } catch (error) {
+    console.error("Fehler beim Laden der Früchte:", error);
+  }
+}
+
+function renderFruits() {
+  console.log(fruits); // Array mit allen Fruchtdaten
+  let container = document.querySelector(`#content`);
+  container.innerHTML = "";
+
+  for (let i = 0; i < fruits.length; i++) {
+    container.innerHTML += `${fruits[i].name} <br>`;
+  }
+}
+```
+
+**Was passiert hier?**
+
+- Mit `fetchDataJson()` werden die Daten asynchron geladen und als Array in `fruits` gespeichert.
+- Mit `renderFruits()` werden die Daten weiterverarbeitet und im HTML angezeigt.
+- Du kannst das Array `fruits` beliebig weiterverwenden, z.B. filtern, sortieren oder einzelne Früchte anzeigen.
+
+**Tipp:**  
+Du kannst die Daten auch weiterverarbeiten, z.B. nach bestimmten Kriterien filtern:
+
+```js
+let citrusFruits = fruits.filter((fruit) => fruit.family === "Rutaceae");
+console.log(citrusFruits);
 ```
