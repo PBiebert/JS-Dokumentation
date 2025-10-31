@@ -11,6 +11,7 @@
 - [DOM Manipulation](./Javascript/dom_manipulation.md)
 - [Local Storage](./Javascript/localStorage.md)
 - [Scopes](./Javascript/scopes.md)
+- [fetch, Promises & Async](./Javascript/fetch.md)
 
 ### TypeScript
 
