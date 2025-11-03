@@ -1,86 +1,101 @@
 [Back to Table of Contents](../README.md)
 
-# Git – Basic Principles and First Steps
+# Git – Step-by-Step: From Initialization to Remote Repository
 
-## 1. Working Directory
+This guide shows the typical first steps when starting a new project with Git, including branch renaming and connecting to a remote repository.
 
-The working directory is the folder where you actively work on your files.
+---
 
-- Changes here are only visible locally.
-- They are not saved in Git until you add them to the staging area.
+## 1. Create a New Project Directory
 
-## 2. Creating a Git Repository
+Create and enter your new project folder:
 
-The following command creates a hidden `.git` subfolder in the current directory:
+```bash
+mkdir my-project
+cd my-project
+```
+
+---
+
+## 2. Initialize a Local Git Repository
 
 ```bash
 git init
 ```
 
-- This folder turns your workspace into a Git repository.
-- It stores all version control information.
+This creates a hidden `.git` folder and turns your directory into a Git repository.
 
-## 3. Structure of a Git Repository
+---
 
-A repository consists of three areas:
+## 3. (Optional) Rename Default Branch to `main`
 
-| Area                 | Description                                                |
-| -------------------- | ---------------------------------------------------------- |
-| Working Directory    | Folder with the files you are currently working on         |
-| Staging Area (Index) | Temporary area for changes prepared for a commit           |
-| Commits (History)    | Collection of all permanently saved versions of your files |
-
-## 4. Adding Changes to the Staging Area
-
-The following command adds changes in the specified file to the staging area:
+By default, Git may use `master` as the main branch. To rename it to `main` (recommended):
 
 ```bash
-git add <filename>
+git branch -m main
 ```
 
-Example:
+---
 
-```bash
-git add style.css
-```
+## 4. Add Files and Make Your First Commit
 
-- You can also add multiple files at once:
-
-```bash
-git add file1.txt file2.txt
-```
-
-- Or add all changes in the current folder:
+Add all files (or specific files) to the staging area:
 
 ```bash
 git add .
 ```
 
-## 5. Saving Changes Permanently (Commit)
-
-The following command saves the current state of the staging area permanently in the commit history:
+Commit your changes:
 
 ```bash
-git commit -m "Short description of the change"
+git commit -m "Initial commit"
 ```
 
-Example:
+---
+
+## 5. Create a New Remote Repository (e.g. on GitHub)
+
+Go to GitHub (or another Git hosting service) and create a new, empty repository. Do not initialize it with a README or .gitignore if you already have those locally.
+
+---
+
+## 6. Connect Local Repository to Remote
+
+Replace `<URL>` with your repository's URL (e.g. `https://github.com/username/my-project.git`):
 
 ```bash
-git commit -m "style.css: Adjusted colors"
+git remote add origin <URL>
 ```
 
-- The commit message should concisely describe what was changed.
+---
 
-## 6. Checking the Status of the Working Directory
+## 7. Push Your Local Branch to Remote
 
-The following command shows the current state of the working directory and the staging area:
+```bash
+git push -u origin main
+```
+
+The `-u` flag sets `origin/main` as the default upstream branch.
+
+---
+
+## 8. Check Status and Workflow
+
+Check the status of your working directory and staging area:
 
 ```bash
 git status
 ```
 
-- Shows:
-  - Which files have been changed
-  - Which files are ready to commit
-  - Which files are still untracked (new, not yet versioned)
+---
+
+## 9. Typical Workflow (Summary)
+
+1. Make changes to your files
+2. Stage changes: `git add .`
+3. Commit: `git commit -m "your message"`
+4. Push: `git push`
+
+---
+
+This covers the essential first steps for every new Git project, from initialization to remote setup and first push.
