@@ -13,6 +13,19 @@
 - [Scopes](./Javascript/scopes.md)
 - [fetch, Promises & Async](./Javascript/fetch.md)
 
+### Git
+
+- [Basic Principles and First Steps](./Git/git_basic_principles_and_first_steps.md)
+- [Typical Workflow](./Git/workflow.md)
+- [Working with Branches](./Git/branches.md)
+- [Remote Repositories](./Git/remote_repositories.md)
+- [Cloning Repositories](./Git/clone_repositories.md)
+- [Undoing Changes and Commits](./Git/undoing_changes_and_commits.md)
+- [Merge Commits](./Git/merge_commits.md)
+- [Merge Conflicts](./Git/merge_conflicts.md)
+- [Repository Structure: .gitignore, README, LICENSE](./Git/repo_structure.md)
+- [Personal Access Token](./Git/personal_access_token.md)
+
 ### TypeScript
 
 _(TypeScript documentation can be linked here later)_
