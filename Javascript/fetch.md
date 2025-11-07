@@ -125,31 +125,59 @@ async function ladeDaten() {
 
 ## 8. Mehrere APIs gleichzeitig abfragen (Promise.all)
 
-Wenn du Daten aus mehreren unabhängigen APIs gleichzeitig abrufen möchtest (z.B. bei der Pokémon-API die Basisdaten und bei der Species-API die deutschen Namen), kannst du `Promise.all` verwenden. Damit laufen beide Anfragen parallel und du wartest, bis beide fertig sind:
+Wenn du Daten aus mehreren unabhängigen APIs gleichzeitig abrufen möchtest (z.B. bei der Pokémon-API die Basisdaten und bei der Species-API die deutschen Namen), kannst du `Promise.all` verwenden. Damit laufen beide Anfragen parallel und du wartest, bis beide fertig sind.
+
+### Clean Code Ansatz: Fetch-Logik auslagern
+
+Im Sinne von Clean Code sollten Funktionen kurz und fokussiert sein. Daher ist es sinnvoll, die fetch-Befehle in separate Funktionen auszulagern:
 
 ```js
-async function fetchPokemonData() {
-  // URLs für die beiden APIs
-  const url1 = "https://pokeapi.co/api/v2/pokemon/1"; // Basisdaten
-  const url2 = "https://pokeapi.co/api/v2/pokemon-species/1"; // Spezialdaten
+async function fetchSinglePokemon(pokemon) {
+  try {
+    const responsePokemonData = await fetch(pokemon.url);
+    const pokemonData = await responsePokemonData.json();
 
-  // Beide Anfragen gleichzeitig starten
-  const [pokemonResponse, speciesResponse] = await Promise.all([fetch(url1), fetch(url2)]);
+    const responsePokemonSpecies = await fetch(pokemonData.species.url);
+    const pokemonSpecies = await responsePokemonSpecies.json();
 
-  // Beide Antworten als JSON parsen
-  const [pokemonData, speciesData] = await Promise.all([pokemonResponse.json(), speciesResponse.json()]);
-
-  // Beispiel: Deutschen Namen aus speciesData holen
-  const germanName = speciesData.names.find((n) => n.language.name === "de").name;
-
-  console.log("Pokemon Daten:", pokemonData);
-  console.log("Deutscher Name:", germanName);
+    return { pokemonData, pokemonSpecies };
+  } catch (error) {
+    console.error("Fehler beim Laden:", error);
+    return null;
+  }
 }
 
-fetchPokemonData();
+async function loadPokemonDetails(fetchStack, saveStack) {
+  try {
+    const promises = [];
+
+    // Alle Fetch-Anfragen gleichzeitig starten
+    for (let i = 0; i < fetchStack.length; i++) {
+      promises.push(fetchSinglePokemon(fetchStack[i]));
+    }
+
+    // Auf alle Promises warten
+    const allPokemonData = await Promise.all(promises);
+
+    // Daten weiterverarbeiten
+    for (let i = 0; i < allPokemonData.length; i++) {
+      const pokemonData = allPokemonData[i].pokemonData;
+      const pokemonSpecies = allPokemonData[i].pokemonSpecies;
+      // Weitere Verarbeitung...
+      saveStack.push({ pokemonData, pokemonSpecies });
+    }
+  } catch (error) {
+    console.error("Fehler beim Laden der Details:", error);
+  }
+}
 ```
 
-**Vorteil:** Beide Anfragen laufen parallel und du sparst Zeit, da du nicht aufeinander warten musst.
+**Vorteile:**
+
+- Beide API-Anfragen (Pokemon + Species) laufen parallel und sparen Zeit
+- Mehrere Pokémon werden gleichzeitig geladen (alle Promises in der Schleife)
+- Klare Trennung der Verantwortlichkeiten: `fetchSinglePokemon` lädt Daten, `loadPokemonDetails` koordiniert
+- Bessere Lesbarkeit und Wartbarkeit durch kleinere, fokussierte Funktionen
 
 ---
 

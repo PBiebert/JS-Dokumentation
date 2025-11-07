@@ -90,15 +90,25 @@ git revert <commitID>
   ```
 - **Warning:** Only use amend for local commits! For already pushed commits, only overwrite with `git push --force` (dangerous for teamwork).
 
+### Editing the commit message in Vim
+
+If you run `git commit --amend` and the Vim editor opens:
+
+1. Press `i` to enter insert mode and edit the commit message.
+2. When finished, press `Esc` to return to normal mode.
+3. Type `:wq` and press `Enter` to save and exit Vim.
+
+**Quick Vim commands:**
+
+- `i` → Insert mode (edit text)
+- `Esc` → Normal mode
+- `:wq` → Save and exit
+- `:q!` → Exit without saving
+
+After exiting Vim, your amended commit will be saved.
+
 ## Key points
 
 - Use `reset` for local changes, `revert` for public commits, and `restore` for targeted file restoration.
 - `amend` is suitable for small corrections to the last commit, as long as it has not been pushed.
 - When in doubt: prefer to preserve history (revert/restore) rather than delete (reset/hard).
-
----
-
-**See also:**
-
-- [Branches and switching](./branches_und_wechsel.md)
-- [Merge conflicts and undoing merges](./merge_commits.md)
