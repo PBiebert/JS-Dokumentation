@@ -158,6 +158,16 @@ for (let i = 0; i < fruits.length; i++) {
 }
 ```
 
+### for...of loop
+
+**for...of loop**: Iterates directly over the values of an array.
+
+```js
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+```
+
 ### while loop
 
 **while loop**: Executes code as long as a condition is true.
