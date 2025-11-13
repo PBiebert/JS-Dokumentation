@@ -72,6 +72,34 @@ console.log(myTestString.includes("Hell")); // Output: true
 console.log(myTestString.includes("world")); // Output: false
 ```
 
+**.startsWith(searchText)** checks if the string starts with the given text.
+
+```js
+console.log("JavaScript".startsWith("Java")); // Output: true
+console.log("JavaScript".startsWith("Script")); // Output: false
+```
+
+**.endsWith(searchText)** checks if the string ends with the given text.
+
+```js
+console.log("JavaScript".endsWith("Script")); // Output: true
+console.log("JavaScript".endsWith("Java")); // Output: false
+```
+
+**.indexOf(searchText)** returns the index of the first occurrence of searchText, or -1 if not found.
+
+```js
+console.log("Banana".indexOf("a")); // Output: 1
+console.log("Banana".indexOf("x")); // Output: -1
+```
+
+**.lastIndexOf(searchText)** returns the index of the last occurrence of searchText, or -1 if not found.
+
+```js
+console.log("Banana".lastIndexOf("a")); // Output: 5
+console.log("Banana".lastIndexOf("x")); // Output: -1
+```
+
 ### Replacing Text
 
 **.replace(searchValue, newValue)** replaces the first occurrence of searchValue with newValue (does not change the original, returns a new string).
@@ -99,6 +127,31 @@ console.log(myNumber.toFixed(4)); // Output: "10.2560"
 let price = 10.25;
 let formattedPrice = price.toString().replace(".", ",");
 console.log(formattedPrice); // Output: "10,25"
+```
+
+### Splitting Strings
+
+**.split(separator)** splits a string into an array using the separator.
+
+```js
+let fruits = "Apple,Banana,Cherry";
+console.log(fruits.split(",")); // Output: ["Apple", "Banana", "Cherry"]
+```
+
+### Padding Strings
+
+**.padStart(targetLength, padString)** pads the string at the start to reach the target length.
+
+```js
+let code = "7";
+console.log(code.padStart(3, "0")); // Output: "007"
+```
+
+**.padEnd(targetLength, padString)** pads the string at the end to reach the target length.
+
+```js
+let code = "7";
+console.log(code.padEnd(3, "0")); // Output: "700"
 ```
 
 ---
