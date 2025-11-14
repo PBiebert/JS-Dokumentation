@@ -6,6 +6,7 @@
 - [Numbers & Strings](./Javascript/string_numbers.md)
 - [Objects](./Javascript/objects.md)
 - [Arrays & Loops](./Javascript/arrays_and_loops.md)
+- [Date Object](./Javascript/date-objekt.md)
 - [Functions](./Javascript/functions.md)
 - [Conditionals & Comparisons](./Javascript/conditional_code.md)
 - [DOM Manipulation](./Javascript/dom_manipulation.md)
